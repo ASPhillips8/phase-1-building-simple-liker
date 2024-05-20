@@ -4,30 +4,22 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
-const glyph = document.querySelector(".like-glyph") /// selects the first glyph 
+// const glyph = document.querySelector(".like-glyph") /// selects the first glyph 
 const allHearts = document.getElementsByClassName("like-glyph") //HTML Collection
 const modal = document.querySelector("#modal")
-const h2Modal = document.querySelector("#modal h2") // Where ERROR! coded
 
 modal.classList.add("hidden")
-// modal.textContent = "ERROR!"
-// glyph.textContent = FULL_HEART
-glyph.classList.add("activated-heart")
-// console.log (glyph)
-// console.log (modal)
-// console.log (allHearts)
 
 function activateHeart (event) {
   const glyphHeart = event.target
-  
   console.log("server call")
   mimicServerCall()
     .then(() => {
       if (glyphHeart.textContent === EMPTY_HEART) {
-        glyphHeart.classList.add("activate-heart")
+        glyphHeart.classList.add("activated-heart")
         glyphHeart.textContent = FULL_HEART
       } else {
-        glyphHeart.classList.remove("activate-heart")
+        glyphHeart.classList.remove("activated-heart")
         glyphHeart.textContent = EMPTY_HEART
       }
     })
@@ -39,17 +31,11 @@ function activateHeart (event) {
       })
 }
 
-mimicServerCall()
-
-
-
-
-
-glyph.addEventListener("click", (event) => {
-  activateHeart(event)
+Array.from(allHearts).forEach((button) => {
+  button.addEventListener("click", activateHeart)
 });
 
-
+mimicServerCall()
 
 
 //------------------------------------------------------------------------------
