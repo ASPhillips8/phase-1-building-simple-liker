@@ -4,6 +4,24 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const glyph = document.querySelector(".like-glyph") /// selects the first glyph 
+const allHearts = document.getElementsByClassName("like-glyph") //HTML Collection
+const modal = document.querySelector("#modal")
+console.log (glyph)
+console.log (modal)
+console.log (allHearts)
+
+// glyph.addEventListener("click", function updateLike() {
+//   const liked = event.target.querySelector("span")
+  
+// })
+
+
+
+glyph.addEventListener("click", function giveLikes (event) {
+  console.log(event.target);
+});
+
 
 
 
