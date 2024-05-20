@@ -1,11 +1,7 @@
 // Defining text characters for the empty and full hearts for you to use later.
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
-
-// Your JavaScript code goes here!
-
-// const glyph = document.querySelector(".like-glyph") /// selects the first glyph 
-const allHearts = document.getElementsByClassName("like-glyph") //HTML Collection
+const allHearts = document.getElementsByClassName("like-glyph") 
 const modal = document.querySelector("#modal")
 
 modal.classList.add("hidden")
