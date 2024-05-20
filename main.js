@@ -7,19 +7,43 @@ const FULL_HEART = '♥'
 const glyph = document.querySelector(".like-glyph") /// selects the first glyph 
 const allHearts = document.getElementsByClassName("like-glyph") //HTML Collection
 const modal = document.querySelector("#modal")
-console.log (glyph)
-console.log (modal)
-console.log (allHearts)
+const h2Modal = document.querySelector("#modal h2") // Where ERROR! coded
 
-// glyph.addEventListener("click", function updateLike() {
-//   const liked = event.target.querySelector("span")
+// modal.classList.add("hidden")
+// modal.textContent = "ERROR!"
+// glyph.textContent = FULL_HEART
+glyph.classList.add("activated-heart")
+// console.log (glyph)
+// console.log (modal)
+// console.log (allHearts)
+
+function activateHeart (event) {
+  const glyphHeart = event.target
   
-// })
+  console.log("server call")
+  mimicServerCall()
+    .then(() => {
+      if (glyphHeart.textContent === EMPTY_HEART) {
+        glyphHeart.classList.add("activate-heart")
+        glyphHeart.textContent = FULL_HEART
+      } else {
+        glyphHeart.classList.remove("activate-heart")
+        glyphHeart.textContent = EMPTY_HEART
+      }
+    })
+    .catch((error) => {
+      console.log("error: ", error)
+    })
+}
+
+mimicServerCall()
 
 
 
-glyph.addEventListener("click", function giveLikes (event) {
-  console.log(event.target);
+
+
+glyph.addEventListener("click", (event) => {
+  activateHeart(event)
 });
 
 
