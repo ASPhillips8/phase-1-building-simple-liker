@@ -9,7 +9,7 @@ const allHearts = document.getElementsByClassName("like-glyph") //HTML Collectio
 const modal = document.querySelector("#modal")
 const h2Modal = document.querySelector("#modal h2") // Where ERROR! coded
 
-// modal.classList.add("hidden")
+modal.classList.add("hidden")
 // modal.textContent = "ERROR!"
 // glyph.textContent = FULL_HEART
 glyph.classList.add("activated-heart")
@@ -31,9 +31,12 @@ function activateHeart (event) {
         glyphHeart.textContent = EMPTY_HEART
       }
     })
-    .catch((error) => {
-      console.log("error: ", error)
-    })
+    .catch(() => {
+      modal.classList.remove("hidden")
+      setTimeout(() => {
+        modal.classList.add("hidden")
+        }, 3000)
+      })
 }
 
 mimicServerCall()
